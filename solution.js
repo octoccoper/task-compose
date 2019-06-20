@@ -1,11 +1,7 @@
 function compose(fns) {
-  // Это неправильное решение! Просто заглушка чтобы
-  // продемонстрировать что будет на экране
-  // Не ищите здесь сакрального смысла или "основы" -
-  // здесь все надо переписать :)
-
-  return (...args) => {
-    fns.forEach(f => f(...args));
-    return 5;
+  return function (data) {
+    return fns.reduceRight(function (value, func) {
+      return func(value);
+    }, data);
   };
-}
+};
