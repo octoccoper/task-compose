@@ -1,1 +1,2 @@
-const compose = (fns) => (data) => fns.reduceRight((value, func) => func(value), data);
+const compose = fns => data =>
+  fns.reduceRight((value, func) => func(value), data);
