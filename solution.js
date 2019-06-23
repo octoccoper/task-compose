@@ -1,7 +1,1 @@
-function compose(fns) {
-  return function(data) {
-    return fns.reduceRight(function(value, func) {
-      return func(value);
-    }, data);
-  };
-}
+const compose = (fns) => (data) => fns.reduceRight((value, func) => func(value), data);
