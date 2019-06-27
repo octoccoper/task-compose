@@ -1,7 +1,7 @@
 function compose(fns) {
   return function(...args) {
-    return fns.reduceRight(function(value, func) {
-      return func(value);
-    }, fns.pop()(...args));
+    return fns.reduceRight(function(values, func) {
+      return [func(...values)];
+    }, args)[0];
   };
 }
